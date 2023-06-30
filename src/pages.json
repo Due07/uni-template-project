@@ -1,0 +1,58 @@
+{
+  "easycom": {
+    "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+  },
+  "pages": [
+    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    { "path": "pages/tabBar/notice" },
+    { "path": "pages/tabBar/strategy" },
+    { "path": "pages/tabBar/release" },
+    { "path": "pages/tabBar/welfare" },
+    { "path": "pages/tabBar/my" },
+    { "path": "pages/index/index" }
+  ],
+  "tabBar": {
+    "custom": true,
+    "color": "#F8F8F8",
+    "backgroundColor": "#F8F8F8",
+    "selectedColor": "#F8F8F8",
+    "list": [
+      {
+        "pagePath": "pages/tabBar/notice",
+        "iconPath": "static/image/tabBar/notice.png",
+        "selectedIconPath": "static/image/tabBar/notice-select.png"
+        // "text": "官方"
+      },
+      {
+        "pagePath": "pages/tabBar/strategy",
+        "iconPath": "static/image/tabBar/strategy.png",
+        "selectedIconPath": "static/image/tabBar/strategy-select.png"
+        // "text": "攻略"
+      },
+      {
+        "pagePath": "pages/tabBar/release",
+        "iconPath": "static/image/tabBar/release.png",
+        "selectedIconPath": "static/image/tabBar/release.png"
+        // "text": "发布"
+      },
+      {
+        "pagePath": "pages/tabBar/welfare",
+        "iconPath": "static/image/tabBar/welfare.png",
+        "selectedIconPath": "static/image/tabBar/welfare-select.png"
+        // "text": "福利"
+      },
+      {
+        "pagePath": "pages/tabBar/my",
+        "iconPath": "static/image/tabBar/my.png",
+        "selectedIconPath": "static/image/tabBar/my-select.png"
+        // "text": "我的"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "新不良人手游",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  }
+}
