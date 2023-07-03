@@ -1,58 +1,71 @@
 /* eslint-disable */
+const app = getApp();
 Component({
+  // options: {
+  //   styleIsolation: 'shared',
+  // },
   data: {
-    selected: 0,
+    selected: app.globalData.selectedBar,
     // color: '#7A7E83',
     // selectedColor: '#3cc51f',
     list: [
       {
-        // 'name': 'zz',
-        'pagePath': 'pages/tabBar/notice',
+        'name': 'notice',
+        'pagePath': '/pages/tabBar/notice',
         'iconPath': '../static/image/tabBar/notice.png',
         'selectedIconPath': '../static/image/tabBar/notice-select.png'
         // 'text': '官方'
       },
       {
-        // 'name': 'za',
-        'pagePath': 'pages/tabBar/strategy',
+        'name': 'strategy',
+        'pagePath': '/pages/tabBar/strategy',
         'iconPath': '../static/image/tabBar/strategy.png',
         'selectedIconPath': '../static/image/tabBar/strategy-select.png',
         'class': 'strategy'
         // 'text': '攻略'
       },
       {
-        // 'name': 'zb',
-        'pagePath': 'pages/tabBar/release',
+        'name': 'release',
+        'pagePath': '/pages/tabBar/release',
         'iconPath': '../static/image/tabBar/release.png',
         'selectedIconPath': '../static/image/tabBar/release.png',
         'class': 'reslease'
         // 'text': '发布'
       },
       {
-        // 'name': 'zzz',
-        'pagePath': 'pages/tabBar/welfare',
+        'name': 'welfare',
+        'pagePath': '/pages/tabBar/welfare',
         'iconPath': '../static/image/tabBar/welfare.png',
         'selectedIconPath': '../static/image/tabBar/welfare-select.png'
         // 'text': '福利'
       },
       {
-        // 'name': 'zv',
-        'pagePath': 'pages/tabBar/my',
+        'name': 'my',
+        'pagePath': '/pages/tabBar/my',
         'iconPath': '../static/image/tabBar/my.png',
         'selectedIconPath': '../static/image/tabBar/my-select.png'
         // 'text': '我的'
       }
     ]
   },
-  attached() {},
+  ready() {
+    const [currentPages] = getCurrentPages();
+    const findIndex = this.data.list.findIndex((item) => item.pagePath === currentPages.$page.fullPath);
+    this.setData({
+      selected: findIndex,
+    })
+  },
   methods: {
     switchTab(e) {
       const data = e.currentTarget.dataset;
-      console.log(data);
+      // console.log(data, getCurrentPages(), app);
       const url = data.path;
-      wx.switchTab({url});
+      app.globalData.selectedBar = data.index;
+
       this.setData({
         selected: data.index
+      }, function () {
+        wx.switchTab({ url });
       });
     }
   }

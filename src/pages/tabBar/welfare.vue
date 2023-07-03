@@ -3,10 +3,17 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
+import { Component, Mixins } from 'vue-property-decorator';
+import setTabBarData from '@/common/mixins/setTabBarData';
 
 @Component({})
-export default class Welfare extends Vue {}
+export default class Welfare extends Mixins(setTabBarData) {
+  // onLoad() {},
+  onShow () {
+    // 修复自定义tabBar 问题
+    this.setTabBarData();
+  }
+}
 </script>
 
 <style lang="scss">

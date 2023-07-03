@@ -13,6 +13,11 @@ export default Vue.extend({
         (rej) => Promise.resolve(callback()).then(() => rej),
       );
     };
+    // 获取系统配置刘海高度
+    this.$store.dispatch('getStatusBarHeight');
+  },
+  globalData: {
+    selectedBar: 0,
   },
   onShow() {
     console.log('App Show');
